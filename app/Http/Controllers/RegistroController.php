@@ -21,12 +21,13 @@ class RegistroController extends Controller
     public function create(Request $request)
     {
 
+        // dd($request->all());
         $dados = [
-            'nome' => $request->nome
+            'nome' => $request->data['nome'],
+            'obs' => $request->data['obs']
         ];
 
         $item = Produto::create($dados);
-
         return response()->json([
             'item' => $item
         ]);
